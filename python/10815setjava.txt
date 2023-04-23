@@ -1,0 +1,48 @@
+package day0508;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+public class Main_10815_숫자카드 {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine());
+
+        //숫자를 담아둘 집합 Set 선언
+        Set<Integer> numbers = new HashSet<>();
+
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        for(int i=0; i<N; i++){
+            numbers.add(Integer.parseInt(st.nextToken()));
+        }
+        //숫자 입력 끝
+
+        //true = 1 / false = 0인 결과를 담을 리스트
+        List<Integer> result = new ArrayList<>();
+        
+        int M = Integer.parseInt(br.readLine());
+        st = new StringTokenizer(br.readLine());
+        for(int i=0; i<M; i++){
+            int curNum = Integer.parseInt(st.nextToken());
+            //집합에 curNum이 포함되어있는지 검사
+            if(numbers.contains(curNum)){
+                //포함되어있으면 리스트에 true : 1 추가
+                result.add(1);
+                continue;
+            }
+            //포함되어있지 않으면 리스트에 false : 0 추가
+            result.add(0);
+        }
+
+        //result 리스트를 순회하면서 StringBuilder에 1 또는 0으로 쌓여있는 결과 출력을 위한 과정
+        StringBuilder sb = new StringBuilder();
+        for(Integer cur : result){
+            sb.append(cur+ " ");
+        }
+
+        System.out.println(sb.toString());
+
+    }
+}
