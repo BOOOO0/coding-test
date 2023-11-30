@@ -24,3 +24,5 @@ for t in tup:
         answer += 1
 
 print(answer)
+
+# 대충해서 예외 있을듯...?
