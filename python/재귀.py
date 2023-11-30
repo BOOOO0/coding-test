@@ -8,10 +8,22 @@ from collections import *
 # 팩토리얼 완성
 
 def factorial (n):
-    print(n)
     if n <= 1:
         return 1
     
     return n * factorial(n-1)
 
 print(factorial(5))
+
+def gcd(a, b):
+    if a % b == 0:
+        return b
+    
+    return gcd(b, a % b)
+
+print(gcd(14, 4))
+
+def lcm(a, b):
+    return int(a * b / gcd(a, b))
+
+print(lcm(14, 4))
